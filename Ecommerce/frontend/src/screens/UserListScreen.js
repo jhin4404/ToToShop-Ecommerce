@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { LinkContainer } from 'react-router-bootstrap' 
 import { useNavigate } from 'react-router-dom'
 import { Table, Button } from 'react-bootstrap'
@@ -27,7 +27,7 @@ function UserListScreen() {
     } else {
         navigate('/login')
     }
-  }, [dispatch, navigate, successDelete])
+  }, [dispatch, navigate, successDelete, userInfo])
 
   const deleteHandler = (id) => {
     if(window.confirm('Are you sure you want to delete this user?')) {

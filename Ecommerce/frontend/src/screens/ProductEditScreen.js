@@ -20,6 +20,7 @@ function ProductEditScreen({ match }) {
     const [price, setPrice] = useState(0)
     const [image, setImage] = useState('')
     const [brand, setBrand] = useState('')
+
     const [category, setCategory] = useState('')
     const [countInStock, setCountInStock] = useState(0)
     const [description, setDescription] = useState('')
@@ -50,7 +51,6 @@ function ProductEditScreen({ match }) {
                 setCategory(product.category)
                 setCountInStock(product.countInStock)
                 setDescription(product.description)
-
             }
         }
 
@@ -150,16 +150,16 @@ function ProductEditScreen({ match }) {
                                 >
                                 </Form.Control>
 
-                                <Form.File
+                                <Form.Control
                                     id='image-file'
                                     label='Choose File'
+                                    type="file"
                                     custom
                                     onChange={uploadFileHandler}
                                 >
 
-                                </Form.File>
+                                </Form.Control>
                                 {uploading && <Loader />}
-
                             </Form.Group>
 
 

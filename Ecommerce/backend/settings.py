@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'rest_framework',
-    "corsheaders",
+    'corsheaders',
+    'storages',
+
 
     'base.apps.BaseConfig',
 ]
@@ -124,8 +126,12 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'totoshop',
+        'USER': 'thanhtran',
+        'PASSWORD': 'Matkhau123-',
+        'HOST': 'totoshop-identifier.caejvnjhuyft.us-east-1.rds.amazonaws.com',
+        'PORT': '5432'
     }
 }
 
@@ -164,7 +170,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 MEDIA_URL = '/images/'
 
 STATICFILES_DIRS = [
@@ -188,3 +194,11 @@ MEDIA_ROOT = 'static/images'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ALLOW_ALL_ORIGINS = True
+
+AWS_QUERYSTRING_AUTH = False
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+AWS_S3_ACCESS_KEY_ID = 'AKIA2P32NDYJKFL5PQHL'
+AWS_S3_SECRET_ACCESS_KEY = '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'
+
+AWS_STORAGE_BUCKET_NAME = 'totoshop-bucket'
